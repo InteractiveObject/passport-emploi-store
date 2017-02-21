@@ -66,11 +66,11 @@ For a complete, working example, refer to the [signon example](https://github.co
     $ npm install --dev
     $ make test
 
-[![Build Status](https://secure.travis-ci.org/InteractiveObject/passport-emploi-store.png)](http://travis-ci.org/jaredhanson/passport-emploi-store)
+[![Build Status](https://secure.travis-ci.org/InteractiveObject/passport-emploi-store.png)](http://travis-ci.org/InteractiveObject/passport-emploi-store)
 
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2011-2017 Interactive Object <[https://interactive-object.com/](https://interactive-object.com/)>
+Copyright (c) 2011-2017 Interactive Object [https://interactive-object.com/](https://interactive-object.com/)
