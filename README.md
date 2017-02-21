@@ -67,6 +67,19 @@ For a complete, working example, refer to the [signon example](https://github.co
     $ npm install --dev
     $ make test
 
+## API Key
+
+This library doesn't provide direct access to the data. To use it, you need to get a client ID and client secret from Emploi Store Dev.
+
+As documented on their
+[website](https://www.emploi-store-dev.fr/portail-developpeur/donneesdoctechnique) you need to:
+
+* [Sign-in](https://www.emploi-store-dev.fr/portail-developpeur/donneesdoctechnique:connexion) or [create a new account](https://www.emploi-store-dev.fr/portail-developpeur/creationutilisateur)
+* Go to your [dashboard](https://www.emploi-store-dev.fr/portail-developpeur/tableaudebord)
+* Add an application, check `Oui` to the question `Utilisation de l’API Pôle
+  emploi` and agree to the terms of use
+* The client ID and secret are then available as `Identifiant client` and `Clé secrète`
+
 
 ## License
 
