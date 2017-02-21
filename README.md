@@ -1,4 +1,4 @@
-# Passport-PoleEmploi
+# Passport-Emploi-Store
 [![Build Status](https://travis-ci.org/InteractiveObject/passport-emploi-store.svg?branch=master)](https://travis-ci.org/InteractiveObject/passport-emploi-store)
 
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
