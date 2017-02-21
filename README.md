@@ -1,4 +1,5 @@
 # Passport-PoleEmploi
+[![Build Status](https://travis-ci.org/InteractiveObject/passport-emploi-store.svg?branch=master)](https://travis-ci.org/InteractiveObject/passport-emploi-store)
 
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
 with [Emploi Store](http://www.emploi-store.fr/) using OpenID 2.0.
@@ -65,8 +66,6 @@ For a complete, working example, refer to the [signon example](https://github.co
 
     $ npm install --dev
     $ make test
-
-[![Build Status](https://secure.travis-ci.org/InteractiveObject/passport-emploi-store.png)](http://travis-ci.org/InteractiveObject/passport-emploi-store)
 
 
 ## License
