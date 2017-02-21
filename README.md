@@ -2,9 +2,9 @@
 [![Build Status](https://travis-ci.org/InteractiveObject/passport-emploi-store.svg?branch=master)](https://travis-ci.org/InteractiveObject/passport-emploi-store)
 
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
-with [Emploi Store](http://www.emploi-store.fr/) using OpenID 2.0.
+with [Emploi Store](http://www.emploi-store.fr/) , a platform setup by Pôle Emploi, the French unemployment agency, to share the public data.
 
-This module lets you authenticate using Pôle Emploi in your Node.js applications.
+This module lets you authenticate using [Emploi Store](http://www.emploi-store.fr/) in your Node.js applications.
 By plugging into Passport, Pôle emploi authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
