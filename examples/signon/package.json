@@ -2,8 +2,10 @@
   "name": "passport-emploi-store-examples-signon",
   "version": "0.0.0",
   "dependencies": {
-    "express": ">= 0.0.0",
     "ejs": ">= 0.0.0",
+    "express": ">= 0.0.0",
+    "express-session": "^1.15.1",
+    "morgan": "^1.8.1",
     "passport": ">= 0.0.0",
     "passport-emploi-store": ">= 0.0.0"
   }

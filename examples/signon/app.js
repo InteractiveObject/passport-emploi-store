@@ -1,6 +1,9 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
+  , morgan = require('morgan')
+  , http = require('http')
+  , session = require('express-session')
   , EmploiStoreStrategy = require('passport-emploi-store').Strategy;
 
 
@@ -25,6 +28,7 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new EmploiStoreStrategy({
+    client_id: 'macigogne-test',
     returnURL: 'http://localhost:3000/auth/emploi-store/return',
     realm: '/individu'
   },
@@ -45,24 +49,26 @@ passport.use(new EmploiStoreStrategy({
 
 
 
-var app = express.createServer();
+var app = express();
 
 // configure Express
-app.configure(function() {
+
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
-  app.use(express.logger());
-  app.use(express.cookieParser());
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.session({ secret: 'keyboard cat' }));
+  app.use(morgan('combined'))
+  //app.use(express.methodOverride());
+  app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
   // Initialize Passport!  Also use passport.session() middleware, to support
   // persistent login sessions (recommended).
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use(app.router);
   app.use(express.static(__dirname + '/../../public'));
-});
+
 
 
 app.get('/', function(req, res){

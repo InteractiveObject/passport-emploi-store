@@ -1,6 +1,6 @@
 {
   "name": "passport-emploi-store",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Emploi Store (OpenID) authentication strategy for Passport.",
   "keywords": ["passport", "emploistore", "poleemploi", "auth", "auth", "authentication", "identity"],
   "repository": {
@@ -36,5 +36,5 @@
       "type": "MIT",
       "url": "http://github.com/InteractiveObject/passport-emploi-store/raw/master/LICENSE"
     }
-  ],
+  ]
 }
