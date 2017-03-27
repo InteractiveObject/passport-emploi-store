@@ -31,6 +31,7 @@
   ],
   "main": "./lib/passport-emploi-store",
   "dependencies": {
+    "nonce": "^1.0.4",
     "passport-oauth2": "^1.4.0",
     "passport-openid": "0.3.x",
     "pkginfo": "0.2.x"

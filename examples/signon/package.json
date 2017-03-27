@@ -6,6 +6,7 @@
     "express": ">= 0.0.0",
     "express-session": "^1.15.1",
     "morgan": "^1.8.1",
+    "nonce": "^1.0.4",
     "passport": ">= 0.0.0",
     "passport-emploi-store": ">= 0.0.0",
     "passport-oauth2": "^1.4.0"
