@@ -1,10 +1,10 @@
-# Passport-PoleEmploi
+# Passport-Emploi-Store
 [![Build Status](https://travis-ci.org/InteractiveObject/passport-emploi-store.svg?branch=master)](https://travis-ci.org/InteractiveObject/passport-emploi-store)
 
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
-with [Emploi Store](http://www.emploi-store.fr/) using OpenID 2.0.
+with [Emploi Store](http://www.emploi-store.fr/) , a platform setup by Pôle Emploi, the French unemployment agency, to share the public data.
 
-This module lets you authenticate using Pôle Emploi in your Node.js applications.
+This module lets you authenticate using [Emploi Store](http://www.emploi-store.fr/) in your Node.js applications.
 By plugging into Passport, Pôle emploi authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
@@ -66,6 +66,19 @@ For a complete, working example, refer to the [signon example](https://github.co
 
     $ npm install --dev
     $ make test
+
+## API Key
+
+This library doesn't provide direct access to the data. To use it, you need to get a client ID and client secret from Emploi Store Dev.
+
+As documented on their
+[website](https://www.emploi-store-dev.fr/portail-developpeur/donneesdoctechnique) you need to:
+
+* [Sign-in](https://www.emploi-store-dev.fr/portail-developpeur/donneesdoctechnique:connexion) or [create a new account](https://www.emploi-store-dev.fr/portail-developpeur/creationutilisateur)
+* Go to your [dashboard](https://www.emploi-store-dev.fr/portail-developpeur/tableaudebord)
+* Add an application, check `Oui` to the question `Utilisation de l’API Pôle
+  emploi` and agree to the terms of use
+* The client ID and secret are then available as `Identifiant client` and `Clé secrète`
 
 
 ## License
