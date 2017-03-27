@@ -2,7 +2,15 @@
   "name": "passport-emploi-store",
   "version": "0.3.1",
   "description": "Emploi Store (OpenID) authentication strategy for Passport.",
-  "keywords": ["passport", "emploistore", "poleemploi", "auth", "auth", "authentication", "identity"],
+  "keywords": [
+    "passport",
+    "emploistore",
+    "poleemploi",
+    "auth",
+    "auth",
+    "authentication",
+    "identity"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/InteractiveObject/passport-emploi-store.git"
@@ -15,14 +23,17 @@
     "email": "younes@interactive-object.com",
     "url": "https://www.interactive-object.com/"
   },
-  "licenses": [ {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/MIT" 
-  } ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/InteractiveObject/passport-emploi-store/raw/master/LICENSE"
+    }
+  ],
   "main": "./lib/passport-emploi-store",
   "dependencies": {
-    "pkginfo": "0.2.x",
-    "passport-openid": "0.3.x"
+    "passport-oauth2": "^1.4.0",
+    "passport-openid": "0.3.x",
+    "pkginfo": "0.2.x"
   },
   "devDependencies": {
     "vows": "0.6.x"
@@ -30,11 +41,7 @@
   "scripts": {
     "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
   },
-  "engines": { "node": ">= 0.6.0" },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/InteractiveObject/passport-emploi-store/raw/master/LICENSE"
-    }
-  ]
+  "engines": {
+    "node": ">= 0.6.0"
+  }
 }

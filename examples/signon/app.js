@@ -4,7 +4,7 @@ var express = require('express')
   , morgan = require('morgan')
   , http = require('http')
   , session = require('express-session')
-  , EmploiStoreStrategy = require('passport-emploi-store').Strategy;
+  , EmploiStoreStrategy = require('../../lib/passport-emploi-store').Strategy;
 
 
 // Passport session setup.
@@ -28,24 +28,16 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new EmploiStoreStrategy({
-    client_id: 'macigogne-test',
-    returnURL: 'http://localhost:3000/auth/emploi-store/return',
-    realm: '/individu'
+    clientID: 'PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A',
+    clientSecret: '8D4D84F55FF86375BF243857276A281C8D4D84F55FF86375BF243857276A281C',
+    callbackURL: "http://localhost:3000/auth/emploi-store/return",
+    scope: ['openid','profile','email', 'application_PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A'],
+    realm: "/individu"
   },
-  function(identifier, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
-      
-      // To keep the example simple, the user's Emploi-Store.fr profile is returned to
-      // represent the logged-in user.  In a typical application, you would want
-      // to associate the Emploi-Store.fr account with a user record in your database,
-      // and return that user instead.
-      profile.identifier = identifier;
-      return done(null, profile);
-    });
+  function(accessToken, refreshToken, profile, done) {
+    return done(null, profile);
   }
 ));
-
 
 
 
@@ -89,7 +81,7 @@ app.get('/login', function(req, res){
 //   the user to emploi-store.fr.  After authenticating, Emploi-Store will redirect the
 //   user back to this application at /auth/emploi-store/return
 app.get('/auth/emploi-store', 
-  passport.authenticate('emploi-store', { failureRedirect: '/login' }),
+  passport.authenticate('emploi-store', { failureRedirect: '/login' , state: "AAA"}),
   function(req, res) {
     res.redirect('/');
   });
@@ -110,7 +102,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 
 // Simple route middleware to ensure user is authenticated.
