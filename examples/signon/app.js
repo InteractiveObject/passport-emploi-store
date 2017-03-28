@@ -28,17 +28,13 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new EmploiStoreStrategy({
-    
-    // test clientID: PAR_MACIGOGNE_5E181305C8713E8AF0ECD4C6305BCD5E31139F61164ACE2879CFB1FC89999381
-    // test clientSecret: PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A
-    // test added scope api_peconnect-individuv1
-    // prod clientID: PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A
-    // prod clientSecret: 8D4D84F55FF86375BF243857276A281C8D4D84F55FF86375BF243857276A281C
-
-    clientID: 'PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A',
+    clientID: 'PAR_MACIGOGNE_5E181305C8713E8AF0ECD4C6305BCD5E31139F61164ACE2879CFB1FC89999381',
     clientSecret: '8D4D84F55FF86375BF243857276A281C8D4D84F55FF86375BF243857276A281C',
     callbackURL: "http://localhost:3000/auth/emploi-store/return",
+    authorizationURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/authorize",
+    tokenURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/access_token",
     scope: ['openid','profile','email', 'application_PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A', 'api_peconnect-individuv1'],
+    responseType: "code",
     realm: "/individu"
   },
   function(accessToken, refreshToken, profile, done) {
