@@ -33,6 +33,7 @@ passport.use(new EmploiStoreStrategy({
     callbackURL: "http://localhost:3000/auth/emploi-store/return",
     authorizationURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/authorize",
     tokenURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/access_token",
+    userProfileURI: "https://api.emploi-store.fr/partenaire/peconnect-individu/v1/userinfo",
     scope: ['openid','profile','email', 'application_PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A', 'api_peconnect-individuv1'],
     responseType: "code",
     realm: "/individu"
