@@ -28,15 +28,15 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new EmploiStoreStrategy({
-    clientID: 'PAR_MACIGOGNE_5E181305C8713E8AF0ECD4C6305BCD5E31139F61164ACE2879CFB1FC89999381',
-    clientSecret: '8D4D84F55FF86375BF243857276A281C8D4D84F55FF86375BF243857276A281C',
+    clientID: "PAR_MACIGOGNE_9895C594AC8B06E3E5E0D97564C2DDADA47A6F3E1A1D4A5079C8D1B581B39CCB",
+    clientSecret: "3E7AD1753F09B3A1ADA5A676BC310F3E1B7EE75E3D3C2542D9003EB124D986CF",
     callbackURL: "http://localhost:3000/auth/emploi-store/return",
-    authorizationURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/authorize",
-    tokenURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/access_token",
-    userProfileURI: "https://api.emploi-store.fr/partenaire/peconnect-individu/v1/userinfo",
-    scope: ['openid','profile','email', 'application_PAR_MACIGOGNEmobile_511E33B4B0FE4BF75AA3BBAC63311E5A511E33B4B0FE4BF75AA3BBAC63311E5A', 'api_peconnect-individuv1'],
+    userProfileURI: "https://api-r.es-qvr.fr/partenaire/peconnect-individu/v1/userinfo",
+    authorizationURL: "https://authentification-candidat-r.pe-qvr.fr/connexion/oauth2/authorize",
+    tokenURL: "https://authentification-candidat-r.pe-qvr.fr/connexion/oauth2/access_token",
+    realm: "/individu",
     responseType: "code",
-    realm: "/individu"
+    scope: ['profile','email', 'api_peconnect-individuv1']
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, profile);
