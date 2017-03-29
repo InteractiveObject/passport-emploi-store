@@ -36,7 +36,7 @@ passport.use(new EmploiStoreStrategy({
     tokenURL: "https://authentification-candidat-r.pe-qvr.fr/connexion/oauth2/access_token",
     realm: "/individu",
     responseType: "code",
-    scope: ['profile','email', 'api_peconnect-individuv1']
+    scope: ['openid','profile','email', 'application_PAR_MACIGOGNE_9895C594AC8B06E3E5E0D97564C2DDADA47A6F3E1A1D4A5079C8D1B581B39CCB', 'api_peconnect-individuv1'],
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, profile);
