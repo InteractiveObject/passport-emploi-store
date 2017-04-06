@@ -22,23 +22,23 @@ unobtrusively integrated into any application or framework that supports
 The Emploi Store authentication strategy authenticates users using a Emploi Store account,
 which is also an OpenID 2.0 identifier.  The strategy requires a `validate`
 callback, which accepts this identifier and calls `done` providing a user.
-Additionally, options can be supplied to specify a return URL and realm.
+Additionally, options can be supplied to specify a callback URL and realm.
 
     passport.use(new EmploiStoreStrategy({
-        returnURL: 'http://localhost:3000/auth/emploistore/return',
-        realm: '/individu',
-        response_type: 'code',
-        client_id: 'XXXX',
+        clientID: "your_client_id",
+        clientSecret: "your_client_secretToken",
+        callbackURL: "http://localhost:3000/auth/emploi-store/callback",
+        userProfileURI: "https://api.emploi-store.fr/partenaire/peconnect-individu/v1/userinfo",
+        authorizationURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/authorize",
+        tokenURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/access_token",
+        realm: "/individu",
+        responseType: "code",
         scope: 'application_XXXXX%20api_authentificationindividuv1%20openid%20profile%20email',
-        state: 'STATE_ID',
-        nonce: 'NOOCE'
-      },
-      function(identifier, done) {
-        User.findByOpenID({ openId: identifier }, function (err, user) {
-          return done(err, user);
-        });
-      }
-    ));
+        // optional nonce: nonce
+    },
+      function(accessToken, refreshToken, profile, done) {
+          return done(err, profile);
+    }));
 
 #### Authenticate Requests
 
@@ -51,7 +51,7 @@ application:
     app.get('/auth/emploistore',
       passport.authenticate('emploi-store'));
 
-    app.get('/auth/emploistore/return', 
+    app.get('/auth/emploistore/callback', 
       passport.authenticate('emploi-store', { failureRedirect: '/login' }),
       function(req, res) {
         // Successful authentication, redirect home.

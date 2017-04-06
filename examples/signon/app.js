@@ -28,15 +28,17 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new EmploiStoreStrategy({
-    clientID: "PAR_MACIGOGNE_9895C594AC8B06E3E5E0D97564C2DDADA47A6F3E1A1D4A5079C8D1B581B39CCB",
-    clientSecret: "3E7AD1753F09B3A1ADA5A676BC310F3E1B7EE75E3D3C2542D9003EB124D986CF",
-    callbackURL: "http://localhost:3000/auth/emploi-store/return",
-    userProfileURI: "https://api-r.es-qvr.fr/partenaire/peconnect-individu/v1/userinfo",
-    authorizationURL: "https://authentification-candidat-r.pe-qvr.fr/connexion/oauth2/authorize",
-    tokenURL: "https://authentification-candidat-r.pe-qvr.fr/connexion/oauth2/access_token",
+    clientID: "your_client_id",
+    clientSecret: "your_client_secretToken",
+    callbackURL: "http://localhost:3000/auth/emploi-store/callback",
+    userProfileURI: "https://api.emploi-store.fr/partenaire/peconnect-individu/v1/userinfo",
+    authorizationURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/authorize",
+    tokenURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/access_token",
     realm: "/individu",
     responseType: "code",
-    scope: ['openid','profile','email', 'application_PAR_MACIGOGNE_9895C594AC8B06E3E5E0D97564C2DDADA47A6F3E1A1D4A5079C8D1B581B39CCB', 'api_peconnect-individuv1'],
+    scope: ['openid','profile','email', 'api_peconnect-individuv1']
+    // optional parameter
+    // nonce: nonce
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, profile);
@@ -47,11 +49,11 @@ passport.use(new EmploiStoreStrategy({
 
 var app = express();
 
-// configure Express
-
+  // configure Express
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(morgan('combined'))
+  
   //app.use(express.methodOverride());
   app.use(session({
     secret: 'keyboard cat',
@@ -59,12 +61,12 @@ var app = express();
     saveUninitialized: true,
     cookie: { secure: true }
   }))
+  
   // Initialize Passport!  Also use passport.session() middleware, to support
   // persistent login sessions (recommended).
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(express.static(__dirname + '/../../public'));
-
 
 
 app.get('/', function(req, res){

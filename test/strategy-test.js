@@ -8,11 +8,10 @@ vows.describe('EmploiStoreStrategy').addBatch({
   
   'strategy': {
     topic: function() {
-      return new EmploiStoreStrategy({ returnURL: 'https://www.example.com/auth/emploi-store/return' },
+      return new EmploiStoreStrategy({ returnURL: 'https://www.example.com/auth/emploi-store/callback' },
         function() {}
       );
     },
-    
     'should be named emploi-store': function (strategy) {
       assert.equal(strategy.name, 'emploi-store');
     },
