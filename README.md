@@ -33,7 +33,7 @@ Additionally, options can be supplied to specify a callback URL and realm.
         tokenURL: "https://authentification-candidat.pole-emploi.fr/connexion/oauth2/access_token",
         realm: "/individu",
         responseType: "code",
-        scope: 'application_XXXXX%20api_authentificationindividuv1%20openid%20profile%20email',
+        scope: ['openid','profile','email', 'api_peconnect-individuv1']
         // optional nonce: nonce
     },
       function(accessToken, refreshToken, profile, done) {
