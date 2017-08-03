@@ -81,6 +81,10 @@ As documented on their
 * The client ID and secret are then available as `Identifiant client` and `Clé secrète`
 
 
+## Used in 
+
+* [Ma cigogne](https://macigogne.fr)
+
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
