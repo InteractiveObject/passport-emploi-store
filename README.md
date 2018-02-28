@@ -89,4 +89,4 @@ As documented on their
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2011-2017 Interactive Object [https://interactive-object.com/](https://interactive-object.com/)
+Maintener : Interactive Object [https://interactive-object.com/](https://interactive-object.com/)
